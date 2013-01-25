@@ -24,5 +24,8 @@ class RSS(object):
     def to_xml(self, path="./output.rss"):
         """ Save the results in an XML format in the supplied path. If no path supplied, the default
         location is ./output.rss"""
-        self.rss.write_xml(open(path, "w"))
+        try: 
+         self.rss.write_xml(open(path, "w"))
+        except:
+          print("Error saving to %s. Make sure the path exists and the XML is properly escaped" % path)
 
